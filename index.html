@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YashM Portfolio</title>
+    <title>Cool Responsive Portfolio Website Design</title>
 
     <!-- swiper css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -107,19 +107,19 @@
             <div class="Credential-box mySwiper">
                 <div class="Credential-content swiper-wrapper">
                     <div class="Credential-slide swiper-slide">
-                        <img src="UDEMY.png" alt="">
+                        <img src="images\UDEMY.png" alt="">
                         <h3>Full Stack Web-Developement Bootcamp</h3>
                         <p>Just completed a full stack web development boot camp! 🎓🚀 From front-end to back-end, I've gained the skills to build dynamic and responsive web applications. Excited to bring innovative solutions to life! 💻✨</p>
                         <a href="https://www.udemy.com/certificate/UC-827d31e0-1885-4131-9ef4-8173a6fc6392/" class="btn"> Show Credentials</a>
                     </div>
                     <div class="Credential-slide swiper-slide">
-                        <img src="UI-UX.png" alt="">
+                        <img src="images\UI-UX.png" alt="">
                         <h3>Basics Of UI/UX</h3>
                         <p>Completed the basics of UI/UX design! 🎨✨ Delved into the world of intuitive interfaces and user-centered experiences, learning to create visually appealing and seamless digital journeys. Ready to take on the next challenge and design with empathy and creativity! </p>
                         <a href="https://verify.mygreatlearning.com/verify/FANJYFVT" class="btn">  Show Credentials</a>
                     </div>
                     <div class="Credential-slide swiper-slide">
-                        <img src="INFOSYS.png" alt="">
+                        <img src="images\INFOSYS.png" alt="">
                         <h3>Python Clean Coding Workshop</h3>
                         <p>Level up achieved! 🚀 Just wrapped up an empowering Python Clean Coding workshop with Infosys Springboard. From mastering elegant code structure to refining my programming prowess, every line of code written was a step closer to software craftsmanship. Here's to cleaner, smarter, and more efficient coding adventures ahead! 💻✨</p>
                         <a href="images\INFOSYS.png" class="btn">  Show Credentials</a>
@@ -195,17 +195,17 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
         
-        <form action="#">
+        <form method="post" name="google-sheet">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input type="text" placeholder="Full Name" name="fullname">
+                <input type="email" placeholder="Email Address" name="email">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+                <input type="number" placeholder="Mobile Number" name="number">
+                <input type="text" placeholder="Email Subject" name="subject">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn" name="submit">
         </form>
     
     </section>
@@ -222,7 +222,18 @@
         </div>
     </footer>
 
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw1xUqYea_44ZwnPjDOKK_Tq78QHAsgFpNUxsD6uiinQGfxgMTbrOekC0xzK2_juwEb/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
 
+    </script>
     <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
@@ -231,6 +242,8 @@
 
     <!-- custom js -->
     <script src="js/script.js"></script>
+
+
 </body>
 
 </html>
